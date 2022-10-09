@@ -1,4 +1,3 @@
-import 'package:medusa_flutter/models/store/product.dart';
 
 class ProductVariant {
   //TODO: ProductVariant: add fields, fromJson, toJson
