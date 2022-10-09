@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 
 class BaseResource {
-  final Dio _client;
+  final Dio client;
 
-  BaseResource(this._client);
+  BaseResource(this.client);
 }
