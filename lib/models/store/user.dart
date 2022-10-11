@@ -47,3 +47,13 @@ class User {
     return json;
   }
 }
+
+enum UserRoles {
+  admin('admin'),
+  member('member'),
+  developer('developer');
+
+  final String value;
+
+  const UserRoles(this.value);
+}
