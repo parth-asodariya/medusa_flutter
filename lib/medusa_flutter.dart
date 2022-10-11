@@ -40,8 +40,9 @@ class Medusa {
     _dio.options = BaseOptions(baseUrl: config.baseUrl, headers: {
       "Accept": "application/json",
       "Content-Type": "application/json",
-      "Authorization": "Bearer ${config.apiKey}",
     });
+    if (config.apiKey != null)
+      _dio.options.headers["Authorization"] = "Bearer ${config.apiKey}";
     auth = AuthResource(_dio);
     carts = CartsResource(_dio);
     customers = CustomersResource(_dio);
