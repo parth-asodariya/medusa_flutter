@@ -1,6 +1,6 @@
 class Config {
   final String baseUrl;
-  final String apiKey;
+  final String? apiKey;
 
-  Config({required this.baseUrl, required this.apiKey});
+  Config({required this.baseUrl, this.apiKey});
 }
