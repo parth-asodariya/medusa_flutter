@@ -1,9 +1,11 @@
+
+
 import 'package:medusa_flutter/models/store/customer.dart';
-import 'package:medusa_flutter/models/store/notification_provider.dart';
+import 'package:medusa_flutter/models/store/notification.dart';
 
-import 'notification_resend.dart';
+import 'notification_provider.dart';
 
-class Notification {
+class NotificationResend {
   String? id;
   String? eventName;
   String? resourceType;
@@ -11,44 +13,45 @@ class Notification {
   String? customerId;
   Customer? customer;
   String? to;
-  Map<String, dynamic>? data;
-  List<NotificationResend>? resends;
+  String? data;
+  String? parentId;
+  Notification? parentNotification;
   String? providerId;
   NotificationProvider? provider;
   DateTime? createdAt;
   DateTime? updatedAt;
 
-  Notification({
+  NotificationResend({
     this.id,
     this.eventName,
-    required this.resourceType,
-    required this.resourceId,
+    this.resourceType,
+    this.resourceId,
     this.customerId,
     this.customer,
-    required this.to,
+    this.to,
     this.data,
-    this.resends,
+    this.parentId,
+    this.parentNotification,
     this.providerId,
     this.provider,
     this.createdAt,
     this.updatedAt,
   });
 
-  Notification.fromJson(Map<String, dynamic> json) {
+  NotificationResend.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     eventName = json['event_name'];
     resourceType = json['resource_type'];
     resourceId = json['resource_id'];
     customerId = json['customer_id'];
     customer =
-        json['customer'] != null ? Customer.fromJson(json['customer']) : null;
+    json['customer'] != null ? Customer.fromJson(json['customer']) : null;
     to = json['to'];
     data = json['data'];
-    if (json['resends'] != null) {
-      resends = <NotificationResend>[];
-      json['resends']
-          .forEach((e) => resends!.add(NotificationResend.fromJson(e)));
-    }
+    parentId = json['parent_id'];
+    parentNotification = json['parent_notification'] != null
+        ? Notification.fromJson(json['parent_notification'])
+        : null;
     providerId = json['provider_id'];
     provider = json['provider'] != null
         ? NotificationProvider.fromJson(json['provider'])
@@ -66,8 +69,9 @@ class Notification {
     json['customer_id'] = customerId;
     json['customer'] = customer?.toJson() ?? {};
     json['to'] = to;
-    json['data'] = data ?? {};
-    json['resends'] = resends?.map((e) => e.toJson()).toList() ?? [];
+    json['data'] = data;
+    json['parent_id'] = parentId;
+    json['parent_notification'] = parentNotification?.toJson() ?? {};
     json['provider_id'] = providerId;
     json['provider'] = provider?.toJson() ?? {};
     json['created_at'] = createdAt.toString();

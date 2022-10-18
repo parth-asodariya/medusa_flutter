@@ -74,10 +74,10 @@ class MoneyAmount {
     json['variant'] = variant?.toJson() ?? {};
     json['region_id'] = regionId;
     json['region'] = region?.toJson() ?? {};
-    createdAt = DateTime.tryParse(json['created_at'] ?? '');
-    updatedAt = DateTime.tryParse(json['updated_at'] ?? '');
-    deletedAt = DateTime.tryParse(json['deleted_at'] ?? '');
-    metadata = json['metadata'] ?? {};
+    json['created_at'] = createdAt.toString();
+    json['updated_at'] = updatedAt.toString();
+    json['deleted_at'] = deletedAt.toString();
+    json['metadata'] = metadata;
     return json;
   }
 }
