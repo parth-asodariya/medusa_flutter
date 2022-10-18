@@ -1,43 +1,37 @@
-import 'dart:convert';
-
 class OAuth {
-  //TODO: OAuth: add fields, fromJson, toJson
-
-  String id;
-  String displayName;
-  String applicationName;
+  String? id;
+  String? displayName;
+  String? applicationName;
   String? installUrl;
-  String? uninstallUrl;
-  dynamic data;
+  String? unInstallUrl;
+  Map<String, dynamic>? data;
 
   OAuth({
     required this.id,
     required this.displayName,
     required this.applicationName,
     this.installUrl,
-    this.uninstallUrl,
+    this.unInstallUrl,
     this.data,
   });
 
-  factory OAuth.fromJson(String str) => OAuth.fromMap(json.decode(str));
+  OAuth.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    displayName = json['display_name'];
+    applicationName = json['application_name'];
+    installUrl = json['install_url'];
+    unInstallUrl = json['uninstall_url'];
+    data = json['data'];
+  }
 
-  String toJson() => json.encode(toMap());
-
-  factory OAuth.fromMap(Map<String, dynamic> json) => OAuth(
-        id: json["id"],
-        displayName: json["display_name"],
-        applicationName: json["application_name"],
-        installUrl: json["install_url"],
-        uninstallUrl: json["uninstall_url"],
-        data: json['data'],
-      );
-
-  Map<String, dynamic> toMap() => {
-        "id": id,
-        "display_name": displayName,
-        "application_name": applicationName,
-        "install_url": installUrl,
-        "uninstall_url": uninstallUrl,
-        "data": data.toMap(),
-      };
+  Map<String, dynamic> toJson() {
+    var json = <String, dynamic>{};
+    json['id'] = id;
+    json['display_name'] = displayName;
+    json['application_name'] = applicationName;
+    json['install_url'] = installUrl;
+    json['uninstall_url'] = unInstallUrl;
+    json['data'] = data;
+    return json;
+  }
 }
