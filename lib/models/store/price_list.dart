@@ -46,6 +46,8 @@ class PriceList {
     updatedAt = DateTime.tryParse(json['updated_at'] ?? '');
     deletedAt = DateTime.tryParse(json['deleted_at'] ?? '');
   }
+
+//TODO: implement priceList to json
 }
 
 enum PriceListType {
