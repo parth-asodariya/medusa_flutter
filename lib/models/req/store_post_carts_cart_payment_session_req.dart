@@ -1,17 +1,17 @@
 class StorePostCartsCartPaymentSessionReq {
-  String? provider_id;
+  String? providerId;
 
   StorePostCartsCartPaymentSessionReq({
-    required this.provider_id,
+    required this.providerId,
   });
 
   StorePostCartsCartPaymentSessionReq.fromJson(Map<String, dynamic> json) {
-    provider_id = json['provider_id'];
+    providerId = json['provider_id'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['provider_id'] = this.provider_id;
+    data['provider_id'] = this.providerId;
     return data;
   }
 }

@@ -9,7 +9,7 @@ class ProductsResource extends BaseResource {
   /// @param {StoreGetProductsParams} query is optional. Can contain a limit and offset for the returned list
   /// @param customHeaders
   /// @return {ResponsePromise<StoreProductsListRes>}
-  Future list({Map<String, dynamic>? queryParams,}) async {
+  Future list({Map<String, dynamic>? queryParams}) async {
     try {
       final response = await client.get(
         '${client.options.baseUrl}/store/products',
@@ -50,8 +50,8 @@ class ProductsResource extends BaseResource {
   /// @return {ResponsePromise<StorePostSearchRes>}
   Future search(Map<String, dynamic>? req) async {
     try {
-      final response =
-      await client.post('${client.options.baseUrl}/store/products/search', data: req);
+      final response = await client
+          .post('${client.options.baseUrl}/store/products/search', data: req);
       if (response.statusCode == 200) {
         return response.data;
       } else {

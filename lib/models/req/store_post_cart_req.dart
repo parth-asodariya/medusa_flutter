@@ -1,25 +1,25 @@
-import 'package:medusa_flutter/models/req/item.dart';
+import 'package:medusa_flutter/models/common/item.dart';
 
 class StorePostCartReq {
   ///TODO: FeatureFlagDecorators implementation remaining
 
-  String? region_id;
-  String? country_code;
+  String? regionId;
+  String? countryCode;
   List<Item>? items;
   dynamic context;
-  String? sales_channel_id;
+  String? salesChannelId;
 
   StorePostCartReq({
-    this.region_id,
-    this.country_code,
+    this.regionId,
+    this.countryCode,
     this.items,
     this.context,
-    this.sales_channel_id,
+    this.salesChannelId,
   });
 
   StorePostCartReq.fromJson(Map<String, dynamic> json) {
-    region_id = json['region_id'];
-    country_code = json['country_code'];
+    regionId = json['region_id'];
+    countryCode = json['country_code'];
     if (json['items'] != null) {
       items = <Item>[];
       json['items'].forEach((v) {
@@ -27,20 +27,20 @@ class StorePostCartReq {
       });
     }
     context = json['context'] != null ? json['context'] : null;
-    sales_channel_id = json['sales_channel_id'];
+    salesChannelId = json['sales_channel_id'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['region_id'] = this.region_id;
-    data['country_code'] = this.country_code;
+    data['region_id'] = this.regionId;
+    data['country_code'] = this.countryCode;
     if (this.items != null) {
       data['items'] = this.items!.map((v) => v.toJson()).toList();
     }
     if (this.context != null) {
       data['context'] = this.context!.toJson();
     }
-    data['sales_channel_id'] = this.sales_channel_id;
+    data['sales_channel_id'] = this.salesChannelId;
     return data;
   }
 }
