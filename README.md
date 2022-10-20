@@ -1,38 +1,55 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
+## Flutter Medusa Package
+![medusa flutter package](https://user-images.githubusercontent.com/47489894/196999514-cce76817-ccc6-4391-85cf-54214a5d96cc.gif)
 
-TODO: A package for REST APIs of Medusa for flutter.
 
-## Features
+## About
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+### Participants
+<ul>
+  <li>Karan - </li>
+<li>Keval - </li>
+<li>Pankti - </li>
+<li>Parth -</li>
+<li>Snehal -</li>
+</ul>
 
-## Getting started
+### Description
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+An open source ecommerce mobile application package built using Medusa and Flutter. It includes all APIs which are in store-front. 
 
-## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
 
-```dart
-const like = 'sample';
+## Set up Project
+
+### Prerequisites
+Before you start with the tutorial make sure you have
+
+- [Flutter](https://flutter.dev/) 
+- [Dart](https://dart.dev/get-dart) 
+- [Medusa server](https://docs.medusajs.com/quickstart/quick-start/) v14 or greater installed on your machine
+
+
+### Install Project
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/parth-asodariya/medusa_flutter
 ```
 
-## Additional information
+2. Change directory and install dependencies:
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+```bash
+cd medusa_flutter
+flutter pub get
+```
+4.  Start the app
+```
+flutter run
+```
+
+## Resources
+- [Medusa’s GitHub repository](https://github.com/medusajs/medusa)
+- [Medusa Documentation](https://docs.medusajs.com/)
