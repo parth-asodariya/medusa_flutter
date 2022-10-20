@@ -1,7 +1,8 @@
 
 
 ## Flutter Medusa Package
-![Untitled design (2)](https://user-images.githubusercontent.com/47489894/196997162-d1cafde7-9a89-4cf4-a5c5-c1707dd346d1.gif)
+![medusa flutter package](https://user-images.githubusercontent.com/47489894/196999514-cce76817-ccc6-4391-85cf-54214a5d96cc.gif)
+
 
 ## About
 
