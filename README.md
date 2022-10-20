@@ -6,12 +6,13 @@
 ## About
 
 ### Participants
-Karan -
-Keval -
-Pankti -
-Parth -
-Snehal -
-
+<ul>
+  <li>Karan - </li>
+<li>Keval - </li>
+<li>Pankti - </li>
+<li>Parth -</li>
+<li>Snehal -</li>
+</ul>
 
 ### Description
 
