@@ -2,6 +2,8 @@ import 'dart:developer';
 
 import 'package:medusa_flutter/resources/base.dart';
 
+import '../models/res/cart.dart';
+
 class CartsResource extends BaseResource {
   CartsResource(super.client);
 
@@ -10,7 +12,7 @@ class CartsResource extends BaseResource {
   /// @param {StorePostCartsCartShippingMethodReq} payload Containing id of shipping option and optional data
   /// @param customHeaders
   /// @return {ResponsePromise<StoreCartsRes>}
-  Future addShippingMethod(
+  Future<StoreCartsRes?> addShippingMethod(
     String cartId,
     Map<String, dynamic>? req,
     Map<String, dynamic>? headers,
@@ -20,12 +22,13 @@ class CartsResource extends BaseResource {
           '${client.options.baseUrl}/store/carts/$cartId/shipping-methods',
           data: req);
       if (response.statusCode == 200) {
-        return response.data;
+        return StoreCartsRes.fromJson(response.data);
       } else {
         throw response.statusCode!;
       }
     } catch (error) {
       log(error.toString());
+      rethrow;
     }
   }
 
@@ -37,19 +40,20 @@ class CartsResource extends BaseResource {
   /// @param {string} cart_id is required
   /// @param customHeaders
   /// @return {ResponsePromise<StoreCompleteCartRes>}
-  Future complete(
+  Future<StoreCompleteCartRes?> complete(
     String cartId,
   ) async {
     try {
       final response = await client
           .post('${client.options.baseUrl}/store/carts/$cartId/complete');
       if (response.statusCode == 200) {
-        return response.data;
+        return StoreCompleteCartRes.fromJson(response.data);
       } else {
         throw response.statusCode!;
       }
     } catch (error) {
       log(error.toString());
+      rethrow;
     }
   }
 
@@ -58,17 +62,18 @@ class CartsResource extends BaseResource {
   /// The cart will contain the payload, if provided. Otherwise it will be empty
   /// @param customHeaders
   /// @return {ResponsePromise<StoreCartsRes>}
-  Future create({Map<String, dynamic>? req}) async {
+  Future<StoreCartsRes?> create({Map<String, dynamic>? req}) async {
     try {
       final response =
           await client.post('${client.options.baseUrl}/store/carts', data: req);
       if (response.statusCode == 200) {
-        return response.data;
+        return StoreCartsRes.fromJson(response.data);
       } else {
         throw response.statusCode!;
       }
     } catch (error) {
       log(error.toString());
+      rethrow;
     }
   }
 
@@ -78,19 +83,20 @@ class CartsResource extends BaseResource {
   /// @param {string} cart_id is required
   /// @param customHeaders
   /// @return {ResponsePromise<StoreCartsRes>}
-  Future createPaymentSessions(
+  Future<StoreCartsRes?> createPaymentSessions(
     String cartId,
   ) async {
     try {
       final response = await client.post(
           '${client.options.baseUrl}/store/carts/$cartId/payment-sessions');
       if (response.statusCode == 200) {
-        return response.data;
+        return StoreCartsRes.fromJson(response.data);
       } else {
         throw response.statusCode!;
       }
     } catch (error) {
       log(error.toString());
+      rethrow;
     }
   }
 
@@ -99,7 +105,7 @@ class CartsResource extends BaseResource {
   /// @param {string} code discount code to remove
   /// @param customHeaders
   /// @return {ResponsePromise<StoreCartsRes>}
-  Future deleteDiscount(
+  Future<StoreCartsRes?> deleteDiscount(
     String cartId,
     String code,
   ) async {
@@ -107,12 +113,13 @@ class CartsResource extends BaseResource {
       final response = await client.delete(
           '${client.options.baseUrl}/store/carts/$cartId/discounts/$code');
       if (response.statusCode == 200) {
-        return response.data;
+        return StoreCartsRes.fromJson(response.data);
       } else {
         throw response.statusCode!;
       }
     } catch (error) {
       log(error.toString());
+      rethrow;
     }
   }
 
@@ -122,7 +129,7 @@ class CartsResource extends BaseResource {
   /// @param {string} provider_id the provider id of the session e.g. "stripe"
   /// @param customHeaders
   /// @return {ResponsePromise<StoreCartsRes>}
-  Future deletePaymentSession(
+  Future<StoreCartsRes?> deletePaymentSession(
     String cartId,
     String providerId,
   ) async {
@@ -130,12 +137,13 @@ class CartsResource extends BaseResource {
       final response = await client.delete(
           '${client.options.baseUrl}/store/carts/$cartId/payment-sessions/$providerId');
       if (response.statusCode == 200) {
-        return response.data;
+        return StoreCartsRes.fromJson(response.data);
       } else {
         throw response.statusCode!;
       }
     } catch (error) {
       log(error.toString());
+      rethrow;
     }
   }
 
@@ -144,7 +152,7 @@ class CartsResource extends BaseResource {
   /// @param {string} provider_id the provider id of the session e.g. "stripe"
   /// @param customHeaders
   /// @return {ResponsePromise<StoreCartsRes>}
-  Future refreshPaymentSession(
+  Future<StoreCartsRes?> refreshPaymentSession(
     String cartId,
     String providerId,
   ) async {
@@ -152,12 +160,13 @@ class CartsResource extends BaseResource {
       final response = await client.post(
           '${client.options.baseUrl}/store/carts/$cartId/payment-sessions/$providerId/refresh');
       if (response.statusCode == 200) {
-        return response.data;
+        return StoreCartsRes.fromJson(response.data);
       } else {
         throw response.statusCode!;
       }
     } catch (error) {
       log(error.toString());
+      rethrow;
     }
   }
 
@@ -165,19 +174,20 @@ class CartsResource extends BaseResource {
   /// @param {string} cart_id is required
   /// @param customHeaders
   /// @return {ResponsePromise<StoreCartsRes>}
-  Future retrieve(
+  Future<StoreCartsRes?> retrieve(
     String cartId,
   ) async {
     try {
       final response =
           await client.get('${client.options.baseUrl}/store/carts/$cartId');
       if (response.statusCode == 200) {
-        return response.data;
+        return StoreCartsRes.fromJson(response.data);
       } else {
         throw response.statusCode!;
       }
     } catch (error) {
       log(error.toString());
+      rethrow;
     }
   }
 
@@ -186,7 +196,7 @@ class CartsResource extends BaseResource {
   /// @param {StorePostCartsCartPaymentSessionReq} payload the provider id of the session e.g. "stripe"
   /// @param customHeaders
   /// @return {ResponsePromise<StoreCartsRes>}
-  Future setPaymentSession(
+  Future<StoreCartsRes?> setPaymentSession(
     String cartId,
     Map<String, dynamic>? req,
   ) async {
@@ -195,7 +205,7 @@ class CartsResource extends BaseResource {
           '${client.options.baseUrl}/store/carts/$cartId/payment-sessions',
           data: req);
       if (response.statusCode == 200) {
-        return response.data;
+        return StoreCartsRes.fromJson(response.data);
       } else {
         throw response.statusCode!;
       }
@@ -209,7 +219,7 @@ class CartsResource extends BaseResource {
   /// @param {StorePostCartsCartReq} payload is required and can contain region_id, email, billing and shipping address
   /// @param customHeaders
   /// @return {ResponsePromise<StoreCartsRes>}
-  Future update(
+  Future<StoreCartsRes?> update(
     String cartId,
     Map<String, dynamic>? req,
   ) async {
@@ -217,12 +227,13 @@ class CartsResource extends BaseResource {
       final response = await client
           .post('${client.options.baseUrl}/store/carts/$cartId', data: req);
       if (response.statusCode == 200) {
-        return response.data;
+        return StoreCartsRes.fromJson(response.data);
       } else {
         throw response.statusCode!;
       }
     } catch (error) {
       log(error.toString());
+      rethrow;
     }
   }
 
@@ -232,19 +243,20 @@ class CartsResource extends BaseResource {
   /// @param {StorePostCartsCartPaymentSessionUpdateReq} payload is required
   /// @param customHeaders
   /// @return {ResponsePromise<StoreCartsRes>}
-  Future updatePaymentSession(
+  Future<StoreCartsRes?> updatePaymentSession(
       String cartId, String providerId, Map<String, dynamic>? req) async {
     try {
       final response = await client.post(
           '${client.options.baseUrl}/store/carts/$cartId/payment-sessions/$providerId',
           data: req);
       if (response.statusCode == 200) {
-        return response.data;
+        return StoreCartsRes.fromJson(response.data);
       } else {
         throw response.statusCode!;
       }
     } catch (error) {
       log(error.toString());
+      rethrow;
     }
   }
 }
