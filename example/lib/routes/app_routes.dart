@@ -2,18 +2,10 @@ import 'package:shopsie/presentation/product_page_screen/product_page_screen.dar
 import 'package:shopsie/presentation/product_page_screen/binding/product_page_binding.dart';
 import 'package:shopsie/presentation/product_discover_screen/product_discover_screen.dart';
 import 'package:shopsie/presentation/product_discover_screen/binding/product_discover_binding.dart';
-import 'package:shopsie/presentation/cart_screen/cart_screen.dart';
-import 'package:shopsie/presentation/cart_screen/binding/cart_binding.dart';
 import 'package:shopsie/presentation/splash_screen/splash_screen.dart';
 import 'package:shopsie/presentation/splash_screen/binding/splash_binding.dart';
-import 'package:shopsie/presentation/register_screen/register_screen.dart';
-import 'package:shopsie/presentation/register_screen/binding/register_binding.dart';
-import 'package:shopsie/presentation/product_search_screen/product_search_screen.dart';
-import 'package:shopsie/presentation/product_search_screen/binding/product_search_binding.dart';
 import 'package:shopsie/presentation/main_landing_screen/main_landing_screen.dart';
 import 'package:shopsie/presentation/main_landing_screen/binding/main_landing_binding.dart';
-import 'package:shopsie/presentation/profile_tab_screen/profile_tab_screen.dart';
-import 'package:shopsie/presentation/profile_tab_screen/binding/profile_tab_binding.dart';
 import 'package:shopsie/presentation/app_navigation_screen/app_navigation_screen.dart';
 import 'package:shopsie/presentation/app_navigation_screen/binding/app_navigation_binding.dart';
 import 'package:get/get.dart';
@@ -57,13 +49,6 @@ class AppRoutes {
       ],
     ),
     GetPage(
-      name: cartScreen,
-      page: () => CartScreen(),
-      bindings: [
-        CartBinding(),
-      ],
-    ),
-    GetPage(
       name: splashScreen,
       page: () => SplashScreen(),
       bindings: [
@@ -71,31 +56,10 @@ class AppRoutes {
       ],
     ),
     GetPage(
-      name: registerScreen,
-      page: () => RegisterScreen(),
-      bindings: [
-        RegisterBinding(),
-      ],
-    ),
-    GetPage(
-      name: productSearchScreen,
-      page: () => ProductSearchScreen(),
-      bindings: [
-        ProductSearchBinding(),
-      ],
-    ),
-    GetPage(
       name: mainLandingScreen,
       page: () => MainLandingScreen(),
       bindings: [
         MainLandingBinding(),
-      ],
-    ),
-    GetPage(
-      name: profileTabScreen,
-      page: () => ProfileTabScreen(),
-      bindings: [
-        ProfileTabBinding(),
       ],
     ),
     GetPage(

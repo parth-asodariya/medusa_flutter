@@ -230,13 +230,13 @@ class ProductPageScreen extends GetWidget<ProductPageController> {
                                                 style: AppStyle.txtLatoRegular14
                                                     .copyWith()))),
                                         CustomButton(
-                                            width: 358,
-                                            text: "lbl_add_to_cart"
-                                                .tr
-                                                .toUpperCase(),
-                                            margin: getMargin(
-                                                left: 16, top: 24, right: 16),
-                                            onTap: onTapBtnAddtocart)
+                                          width: 358,
+                                          text: "lbl_add_to_cart"
+                                              .tr
+                                              .toUpperCase(),
+                                          margin: getMargin(
+                                              left: 16, top: 24, right: 16),
+                                        )
                                       ]))
                             ]))))));
   }
@@ -255,20 +255,6 @@ class ProductPageScreen extends GetWidget<ProductPageController> {
 
   onTapImgUser() {
     Get.toNamed(AppRoutes.profileTabScreen);
-  }
-
-  void onTapBtnAddtocart() {
-    PostCartIdLineItemsReq postCartIdLineItemsReq = PostCartIdLineItemsReq(
-      variantId: controller.productPageModelObj.value.variantIdTxt.value,
-      quantity: Shopsie.qty,
-    );
-    controller.callCreateCartIdLineItems(
-      postCartIdLineItemsReq.toJson(),
-      successCall: _onCreateCartIdLineItemsSuccess,
-      errCall: _onCreateCartIdLineItemsError,
-      cartId: Get.find<PrefUtils>().getCartId(),
-    );
-    Fluttertoast.showToast(msg: "Added into cart!");
   }
 
   void _onCreateCartIdLineItemsSuccess() {}
