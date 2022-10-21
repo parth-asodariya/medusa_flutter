@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:medusa_flutter/models/req/store_post_search_req.dart';
 import 'package:medusa_flutter/resources/base.dart';
 
 class ProductsResource extends BaseResource {
@@ -48,7 +49,7 @@ class ProductsResource extends BaseResource {
   /// @param {StorePostSearchReq} searchOptions is required
   /// @param customHeaders
   /// @return {ResponsePromise<StorePostSearchRes>}
-  Future search(Map<String, dynamic>? req) async {
+  Future search(StorePostSearchReq? req) async {
     try {
       final response = await client
           .post('${client.options.baseUrl}/store/products/search', data: req);
