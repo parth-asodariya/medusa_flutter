@@ -1,13 +1,17 @@
+import 'package:medusa_flutter/medusa_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shopsie/core/app_export.dart';
 import 'package:shopsie/core/utils/progress_dialog_utils.dart';
 
 class ApiClient extends GetConnect {
   var url = "BASE_URL_OF_SERVER";
+  var medusa;
+
 
   @override
   void onInit() {
     super.onInit();
+    medusa = Medusa(Config(baseUrl: "http://localhost:9000"));
     httpClient.timeout = Duration(seconds: 60);
 
     httpClient.addRequestModifier<dynamic>((request) async {
@@ -466,7 +470,8 @@ class ApiClient extends GetConnect {
       Function(dynamic error)? onError,
       Map<String, String> headers = const {}}) async {
     ProgressDialogUtils.showProgressDialog();
-    try {
+    return medusa.products.list();
+    /*try {
       await isNetworkConnected();
       Response response =
           await httpClient.get('$url/store/products', headers: headers);
@@ -482,6 +487,7 @@ class ApiClient extends GetConnect {
       ProgressDialogUtils.hideProgressDialog();
       Logger.log(error, stackTrace: stackTrace);
       onError!(error);
-    }
+    }*/
+
   }
 }

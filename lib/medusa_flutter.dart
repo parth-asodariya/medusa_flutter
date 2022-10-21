@@ -1,5 +1,9 @@
 library medusa_flutter;
 
+export 'medusa_flutter.dart';
+export '/data/config.dart';
+
+
 import 'package:dio/dio.dart';
 
 import 'data/config.dart';
@@ -59,3 +63,5 @@ class Medusa {
     paymentMethods = PaymentMethodsResource(_dio);
   }
 }
+
+
