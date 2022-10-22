@@ -2,6 +2,8 @@ import 'dart:developer';
 
 import 'package:medusa_flutter/resources/base.dart';
 
+import '../models/res/return_reasons.dart';
+
 class ReturnReasonsResource extends BaseResource {
   ReturnReasonsResource(super.client);
 
@@ -9,18 +11,19 @@ class ReturnReasonsResource extends BaseResource {
   /// @param {string} id is required
   /// @param customHeaders
   /// @return {ResponsePromise<StoreReturnReasonsRes>}
-  Future retrieve(String id) async {
+  Future<StoreReturnReasonsRes?> retrieve(String id) async {
     try {
       final response = await client.get(
         '${client.options.baseUrl}/store/return-reasons/$id',
       );
       if (response.statusCode == 200) {
-        return response.data;
+        return StoreReturnReasonsRes.fromJson(response.data);
       } else {
         throw response.statusCode!;
       }
     } catch (error) {
       log(error.toString());
+      rethrow;
     }
   }
 
@@ -28,18 +31,19 @@ class ReturnReasonsResource extends BaseResource {
   /// @param customHeaders
   /// @return {ResponsePromise<StoreReturnReasonsListRes>}
 
-  Future list() async {
+  Future<StoreReturnReasonsListRes?> list() async {
     try {
       final response = await client.get(
         '${client.options.baseUrl}/store/return-reasons',
       );
       if (response.statusCode == 200) {
-        return response.data;
+        return StoreReturnReasonsListRes.fromJson(response.data);
       } else {
         throw response.statusCode!;
       }
     } catch (error) {
       log(error.toString());
+      rethrow;
     }
   }
 }

@@ -2,6 +2,8 @@ import 'dart:developer';
 
 import 'package:medusa_flutter/resources/base.dart';
 
+import '../models/res/orders.dart';
+
 class OrdersResource extends BaseResource {
   OrdersResource(super.client);
 
@@ -9,19 +11,20 @@ class OrdersResource extends BaseResource {
   /// @param {string} id is required
   /// @param customHeaders
   /// @return {ResponsePromise<StoreOrdersRes>}
-  Future retrieve(
+  Future<StoreOrdersRes?> retrieve(
     String id,
   ) async {
     try {
       final response =
           await client.get('${client.options.baseUrl}/store/orders/$id');
       if (response.statusCode == 200) {
-        return response.data;
+        return StoreOrdersRes.fromJson(response.data);
       } else {
         throw response.statusCode!;
       }
     } catch (error) {
       log(error.toString());
+      rethrow;
     }
   }
 
@@ -29,19 +32,20 @@ class OrdersResource extends BaseResource {
   /// @param {string} cart_id is required
   /// @param customHeaders
   /// @return {ResponsePromise<StoreOrdersRes>}
-  Future retrieveByCartId(
+  Future<StoreOrdersRes?> retrieveByCartId(
     String cartId,
   ) async {
     try {
       final response = await client
           .get('${client.options.baseUrl}/store/orders/cart/$cartId');
       if (response.statusCode == 200) {
-        return response.data;
+        return StoreOrdersRes.fromJson(response.data);
       } else {
         throw response.statusCode!;
       }
     } catch (error) {
       log(error.toString());
+      rethrow;
     }
   }
 
@@ -49,7 +53,7 @@ class OrdersResource extends BaseResource {
   /// @param {StoreGetOrdersParams} payload details used to look up the order
   /// @param customHeaders
   /// @return {ResponsePromise<StoreOrdersRes>}
-  Future lookupOrder(
+  Future<StoreOrdersRes?> lookupOrder(
     Map<String, dynamic>? queryParams,
   ) async {
     try {
@@ -57,12 +61,13 @@ class OrdersResource extends BaseResource {
           '${client.options.baseUrl}/store/orders/cart/',
           queryParameters: queryParams);
       if (response.statusCode == 200) {
-        return response.data;
+        return StoreOrdersRes.fromJson(response.data);
       } else {
         throw response.statusCode!;
       }
     } catch (error) {
       log(error.toString());
+      rethrow;
     }
   }
 }

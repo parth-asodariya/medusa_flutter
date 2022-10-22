@@ -2,6 +2,8 @@ import 'dart:developer';
 
 import 'package:medusa_flutter/resources/base.dart';
 
+import '../models/res/customers.dart';
+
 class CustomersResource extends BaseResource {
   CustomersResource(super.client);
 
@@ -9,30 +11,31 @@ class CustomersResource extends BaseResource {
   /// @param {StorePostCustomersReq} payload information of customer
   /// @param customHeaders
   /// @return { ResponsePromise<StoreCustomersRes>}
-  Future create(Map<String, dynamic>? req) async {
+  Future<StoreCustomersRes?> create(Map<String, dynamic>? req) async {
     try {
       final response = await client
           .post('${client.options.baseUrl}/store/customers', data: req);
       if (response.statusCode == 200) {
-        return response.data;
+        return StoreCustomersRes.fromJson(response.data);
       } else {
         throw response.statusCode!;
       }
     } catch (error) {
       log(error.toString());
+      rethrow;
     }
   }
 
   ///Retrieves the customer that is currently logged
   /// @param customHeaders
   /// @return {ResponsePromise<StoreCustomersRes>}
-  Future retrieve() async {
+  Future<StoreCustomersRes?> retrieve() async {
     try {
       final response = await client.get(
         '${client.options.baseUrl}/store/customers/me',
       );
       if (response.statusCode == 200) {
-        return response.data;
+        return StoreCustomersRes.fromJson(response.data);
       } else {
         throw response.statusCode!;
       }
@@ -45,17 +48,18 @@ class CustomersResource extends BaseResource {
   /// @param {StorePostCustomersCustomerReq} payload information to update customer with
   /// @param customHeaders
   /// @return {ResponsePromise<StoreCustomersRes>}
-  Future update(Map<String, dynamic>? req) async {
+  Future<StoreCustomersRes?> update(Map<String, dynamic>? req) async {
     try {
       final response = await client
           .post('${client.options.baseUrl}/store/customers/me', data: req);
       if (response.statusCode == 200) {
-        return response.data;
+        return StoreCustomersRes.fromJson(response.data);
       } else {
         throw response.statusCode!;
       }
     } catch (error) {
       log(error.toString());
+      rethrow;
     }
   }
 
@@ -64,18 +68,19 @@ class CustomersResource extends BaseResource {
   /// @param customHeaders
   /// @return {ResponsePromise<StoreCustomersListOrdersRes>}
 
-  Future listOrders() async {
+  Future<StoreCustomersListOrdersRes?> listOrders() async {
     try {
       final response = await client.get(
         '${client.options.baseUrl}/store/customers/me/orders',
       );
       if (response.statusCode == 200) {
-        return response.data;
+        return StoreCustomersListOrdersRes.fromJson(response.data);
       } else {
         throw response.statusCode!;
       }
     } catch (error) {
       log(error.toString());
+      rethrow;
     }
   }
 
@@ -83,18 +88,19 @@ class CustomersResource extends BaseResource {
   /// @param {StorePostCustomersCustomerPasswordTokenReq} payload info used to reset customer password
   /// @param customHeaders
   /// @return {ResponsePromise<StoreCustomersRes>}
-  Future resetPassword(Map<String, dynamic>? req) async {
+  Future<StoreCustomersRes?> resetPassword(Map<String, dynamic>? req) async {
     try {
       final response = await client.post(
           '${client.options.baseUrl}/store/customers/password-reset',
           data: req);
       if (response.statusCode == 200) {
-        return response.data;
+        return StoreCustomersRes.fromJson(response.data);
       } else {
         throw response.statusCode!;
       }
     } catch (error) {
       log(error.toString());
+      rethrow;
     }
   }
 
@@ -115,6 +121,7 @@ class CustomersResource extends BaseResource {
       }
     } catch (error) {
       log(error.toString());
+      rethrow;
     }
   }
 }
