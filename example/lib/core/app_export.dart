@@ -15,3 +15,4 @@ export 'package:shopsie/core/network/network_info.dart';
 export 'package:shopsie/core/utils/logger.dart';
 export 'package:shopsie/routes/navigation_args.dart';
 export 'package:url_launcher/url_launcher.dart';
+export 'package:shopsie/localization/app_localization.dart';

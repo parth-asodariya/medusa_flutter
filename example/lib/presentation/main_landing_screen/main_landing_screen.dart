@@ -24,79 +24,21 @@ class MainLandingScreen extends GetWidget<MainLandingController> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(
-                          width: size.width,
-                          decoration:
-                              BoxDecoration(color: ColorConstant.whiteA700),
-                          child: Padding(
-                              padding: getPadding(
-                                  left: 19, top: 22, right: 19, bottom: 23),
-                              child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    GestureDetector(
-                                        onTap: () {
-                                          onTapImgMenu();
-                                        },
-                                        child: Padding(
-                                            padding: getPadding(
-                                                top: 10, bottom: 10, right: 10),
-                                            child: CommonImageView(
-                                                svgPath: ImageConstant.imgMenu,
-                                                height: getVerticalSize(13.00),
-                                                width:
-                                                    getHorizontalSize(18.00)))),
-                                    Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Padding(
-                                              padding:
-                                                  getPadding(top: 2, bottom: 1),
-                                              child: CommonImageView(
-                                                  svgPath:
-                                                      ImageConstant.imgSignal,
-                                                  height:
-                                                      getVerticalSize(14.00),
-                                                  width: getHorizontalSize(
-                                                      48.00))),
-                                          Padding(
-                                              padding: getPadding(
-                                                  left: 57,
-                                                  top: 1,
-                                                  bottom: 1),
-                                              child: CommonImageView(
-                                                  svgPath: ImageConstant
-                                                      .imgSearch,
-                                                  height: getSize(15.00),
-                                                  width: getSize(15.00))),
-                                          Padding(
-                                              padding: getPadding(left: 23),
-                                              child: CommonImageView(
-                                                  svgPath:
-                                                      ImageConstant.imgCart,
-                                                  height: getVerticalSize(
-                                                      17.00),
-                                                  width: getHorizontalSize(
-                                                      18.00))),
-                                          Padding(
-                                              padding: getPadding(
-                                                  left: 24,
-                                                  top: 1,
-                                                  bottom: 1),
-                                              child: CommonImageView(
-                                                  svgPath:
-                                                      ImageConstant.imgUser,
-                                                  height: getVerticalSize(
-                                                      15.00),
-                                                  width: getHorizontalSize(
-                                                      13.00)))
-                                        ])
-                                  ]))),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                              padding:
+                              getPadding(top: 15, bottom: 15),
+                              child: CommonImageView(
+                                  svgPath:
+                                  ImageConstant.imgSignal,
+                                  height:
+                                  getVerticalSize(24.00),
+                                  width: getHorizontalSize(
+                                      48.00))),
+                        ],
+                      ),
                       Expanded(
                           child: SingleChildScrollView(
                               child: Container(

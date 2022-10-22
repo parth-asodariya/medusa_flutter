@@ -34,10 +34,10 @@ class ProductDiscoverScreen extends GetWidget<ProductDiscoverController> {
                                       left: 19, top: 22, right: 19, bottom: 23),
                                   child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.start,
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      mainAxisSize: MainAxisSize.max,
+                                          CrossAxisAlignment.start,
+                                      mainAxisSize: MainAxisSize.min,
                                       children: [
                                         InkWell(
                                             onTap: () {
@@ -53,60 +53,16 @@ class ProductDiscoverScreen extends GetWidget<ProductDiscoverController> {
                                                         getVerticalSize(13.00),
                                                     width: getHorizontalSize(
                                                         18.00)))),
-                                        Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Padding(
-                                                  padding: getPadding(
-                                                      top: 2, bottom: 1),
-                                                  child: CommonImageView(
-                                                      svgPath: ImageConstant
-                                                          .imgSignal,
-                                                      height: getVerticalSize(
-                                                          14.00),
-                                                      width: getHorizontalSize(
-                                                          48.00))),
-                                              Padding(
-                                                  padding: getPadding(
-                                                      left: 57,
-                                                      top: 1,
-                                                      bottom: 1),
-                                                  child: CommonImageView(
-                                                      svgPath: ImageConstant
-                                                          .imgSearch,
-                                                      height:
-                                                          getSize(15.00),
-                                                      width:
-                                                          getSize(15.00))),
-                                              Padding(
-                                                  padding:
-                                                      getPadding(left: 23),
-                                                  child: CommonImageView(
-                                                      svgPath: ImageConstant
-                                                          .imgCart,
-                                                      height:
-                                                          getVerticalSize(
-                                                              17.00),
-                                                      width:
-                                                          getHorizontalSize(
-                                                              18.00))),
-                                              Padding(
-                                                  padding: getPadding(
-                                                      left: 24,
-                                                      top: 1,
-                                                      bottom: 1),
-                                                  child: CommonImageView(
-                                                      svgPath: ImageConstant
-                                                          .imgUser,
-                                                      height:
-                                                          getVerticalSize(
-                                                              15.00),
-                                                      width:
-                                                          getHorizontalSize(
-                                                              13.00)))
-                                            ])
+                                        Padding(
+                                            padding: getPadding(left: 20,
+                                                top: 2, bottom: 1),
+                                            child: CommonImageView(
+                                                svgPath: ImageConstant
+                                                    .imgSignal,
+                                                height: getVerticalSize(
+                                                    14.00),
+                                                width: getHorizontalSize(
+                                                    48.00)))
                                       ])))),
                       Padding(
                           padding: getPadding(left: 16, top: 22, right: 16),
