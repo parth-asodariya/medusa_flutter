@@ -64,49 +64,37 @@ class MainLandingScreen extends GetWidget<MainLandingController> {
                                                       getVerticalSize(14.00),
                                                   width: getHorizontalSize(
                                                       48.00))),
-                                          InkWell(
-                                              onTap: () {
-                                                onTapImgSearch();
-                                              },
-                                              child: Padding(
-                                                  padding: getPadding(
-                                                      left: 57,
-                                                      top: 1,
-                                                      bottom: 1),
-                                                  child: CommonImageView(
-                                                      svgPath: ImageConstant
-                                                          .imgSearch,
-                                                      height: getSize(15.00),
-                                                      width: getSize(15.00)))),
-                                          InkWell(
-                                              onTap: () {
-                                                onTapImgCart();
-                                              },
-                                              child: Padding(
-                                                  padding: getPadding(left: 23),
-                                                  child: CommonImageView(
-                                                      svgPath:
-                                                          ImageConstant.imgCart,
-                                                      height: getVerticalSize(
-                                                          17.00),
-                                                      width: getHorizontalSize(
-                                                          18.00)))),
-                                          InkWell(
-                                              onTap: () {
-                                                onTapImgUser();
-                                              },
-                                              child: Padding(
-                                                  padding: getPadding(
-                                                      left: 24,
-                                                      top: 1,
-                                                      bottom: 1),
-                                                  child: CommonImageView(
-                                                      svgPath:
-                                                          ImageConstant.imgUser,
-                                                      height: getVerticalSize(
-                                                          15.00),
-                                                      width: getHorizontalSize(
-                                                          13.00))))
+                                          Padding(
+                                              padding: getPadding(
+                                                  left: 57,
+                                                  top: 1,
+                                                  bottom: 1),
+                                              child: CommonImageView(
+                                                  svgPath: ImageConstant
+                                                      .imgSearch,
+                                                  height: getSize(15.00),
+                                                  width: getSize(15.00))),
+                                          Padding(
+                                              padding: getPadding(left: 23),
+                                              child: CommonImageView(
+                                                  svgPath:
+                                                      ImageConstant.imgCart,
+                                                  height: getVerticalSize(
+                                                      17.00),
+                                                  width: getHorizontalSize(
+                                                      18.00))),
+                                          Padding(
+                                              padding: getPadding(
+                                                  left: 24,
+                                                  top: 1,
+                                                  bottom: 1),
+                                              child: CommonImageView(
+                                                  svgPath:
+                                                      ImageConstant.imgUser,
+                                                  height: getVerticalSize(
+                                                      15.00),
+                                                  width: getHorizontalSize(
+                                                      13.00)))
                                         ])
                                   ]))),
                       Expanded(
@@ -999,18 +987,6 @@ class MainLandingScreen extends GetWidget<MainLandingController> {
 
   onTapImgMenu() {
     _scaffoldKey.currentState?.openDrawer();
-  }
-
-  onTapImgSearch() {
-    Get.toNamed(AppRoutes.productSearchScreen);
-  }
-
-  onTapImgCart() {
-    Get.toNamed(AppRoutes.cartScreen);
-  }
-
-  onTapImgUser() {
-    Get.toNamed(AppRoutes.profileTabScreen);
   }
 
   onTapImgImageMain() {

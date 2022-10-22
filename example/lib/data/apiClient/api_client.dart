@@ -4,7 +4,6 @@ import 'package:shopsie/core/app_export.dart';
 import 'package:shopsie/core/utils/progress_dialog_utils.dart';
 
 class ApiClient extends GetConnect {
-  var url = "BASE_URL_OF_SERVER";
   var medusa;
 
   @override
@@ -40,9 +39,10 @@ class ApiClient extends GetConnect {
       Function(dynamic error)? onError,
       Map<String, String> headers = const {},
       String? id = ''}) async {
+    ProgressDialogUtils.showProgressDialog();
     try {
       dynamic data = await medusa.products.retrieve(id);
-      print(data);
+      ProgressDialogUtils.hideProgressDialog();
       onSuccess!(data);
     } catch (error, stackTrace) {
       ProgressDialogUtils.hideProgressDialog();
@@ -53,11 +53,11 @@ class ApiClient extends GetConnect {
 
   Future fetchProducts(
       {Function(dynamic data)? onSuccess,
-      Function(dynamic error)? onError,
-      Map<String, String> headers = const {}}) async {
+      Function(dynamic error)? onError}) async {
+    ProgressDialogUtils.showProgressDialog();
     try {
       dynamic data = await medusa.products.list();
-      print(data);
+      ProgressDialogUtils.hideProgressDialog();
       onSuccess!(data);
     } catch (error, stackTrace) {
       ProgressDialogUtils.hideProgressDialog();

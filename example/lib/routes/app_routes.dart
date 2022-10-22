@@ -15,19 +15,7 @@ class AppRoutes {
 
   static String productDiscoverScreen = '/product_discover_screen';
 
-  static String loginScreen = '/login_screen';
-
-  static String cartScreen = '/cart_screen';
-
-  static String splashScreen = '/splash_screen';
-
-  static String registerScreen = '/register_screen';
-
-  static String productSearchScreen = '/product_search_screen';
-
   static String mainLandingScreen = '/main_landing_screen';
-
-  static String profileTabScreen = '/profile_tab_screen';
 
   static String appNavigationScreen = '/app_navigation_screen';
 
@@ -46,13 +34,6 @@ class AppRoutes {
       page: () => ProductDiscoverScreen(),
       bindings: [
         ProductDiscoverBinding(),
-      ],
-    ),
-    GetPage(
-      name: splashScreen,
-      page: () => SplashScreen(),
-      bindings: [
-        SplashBinding(),
       ],
     ),
     GetPage(
