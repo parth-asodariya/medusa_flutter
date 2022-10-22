@@ -89,42 +89,4 @@ class ProductPageController extends GetxController {
       msg: "Something went wrong!",
     );
   }
-
-  void callCreateCartIdLineItems(Map req,
-      {VoidCallback? successCall,
-      VoidCallback? errCall,
-      String? cartId}) async {
-    return Get.find<ApiClient>().createCartIdLineItems(
-        onSuccess: (resp) {
-          onCreateCartIdLineItemsSuccess(resp);
-          if (successCall != null) {
-            successCall();
-          }
-        },
-        onError: (err) {
-          onCreateCartIdLineItemsError(err);
-          if (errCall != null) {
-            errCall();
-          }
-        },
-        requestData: req,
-        cartId: cartId);
-  }
-
-  void onCreateCartIdLineItemsSuccess(var response) {
-    postCartIdLineItemsResp = PostCartIdLineItemsResp.fromJson(response);
-  }
-
-  void onCreateCartIdLineItemsError(var err) {
-    if (err is NoInternetException) {
-      Get.rawSnackbar(
-        messageText: Text(
-          '$err',
-          style: TextStyle(
-            color: Colors.white,
-          ),
-        ),
-      );
-    }
-  }
 }

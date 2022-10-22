@@ -2,10 +2,6 @@ import 'controller/product_page_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:shopsie/core/app_export.dart';
 import 'package:shopsie/widgets/custom_button.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:shopsie/data/models/cartIdLineItems/post_cart_id_line_items_req.dart';
-import 'package:shopsie/core/constants/shopsie.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 class ProductPageScreen extends GetWidget<ProductPageController> {
   @override
@@ -70,59 +66,47 @@ class ProductPageScreen extends GetWidget<ProductPageController> {
                                                           width:
                                                               getHorizontalSize(
                                                                   48.00))),
-                                                  InkWell(
-                                                      onTap: () {
-                                                        onTapImgSearch();
-                                                      },
-                                                      child: Padding(
-                                                          padding: getPadding(
-                                                              left: 57,
-                                                              top: 1,
-                                                              bottom: 1),
-                                                          child: CommonImageView(
-                                                              svgPath:
-                                                                  ImageConstant
-                                                                      .imgSearch,
-                                                              height: getSize(
+                                                  Padding(
+                                                      padding: getPadding(
+                                                          left: 57,
+                                                          top: 1,
+                                                          bottom: 1),
+                                                      child: CommonImageView(
+                                                          svgPath:
+                                                              ImageConstant
+                                                                  .imgSearch,
+                                                          height: getSize(
+                                                              15.00),
+                                                          width: getSize(
+                                                              15.00))),
+                                                  Padding(
+                                                      padding: getPadding(
+                                                          left: 23),
+                                                      child: CommonImageView(
+                                                          svgPath:
+                                                              ImageConstant
+                                                                  .imgCart,
+                                                          height:
+                                                              getVerticalSize(
+                                                                  17.00),
+                                                          width:
+                                                              getHorizontalSize(
+                                                                  18.00))),
+                                                  Padding(
+                                                      padding: getPadding(
+                                                          left: 24,
+                                                          top: 1,
+                                                          bottom: 1),
+                                                      child: CommonImageView(
+                                                          svgPath:
+                                                              ImageConstant
+                                                                  .imgUser,
+                                                          height:
+                                                              getVerticalSize(
                                                                   15.00),
-                                                              width: getSize(
-                                                                  15.00)))),
-                                                  InkWell(
-                                                      onTap: () {
-                                                        onTapImgCart();
-                                                      },
-                                                      child: Padding(
-                                                          padding: getPadding(
-                                                              left: 23),
-                                                          child: CommonImageView(
-                                                              svgPath:
-                                                                  ImageConstant
-                                                                      .imgCart,
-                                                              height:
-                                                                  getVerticalSize(
-                                                                      17.00),
-                                                              width:
-                                                                  getHorizontalSize(
-                                                                      18.00)))),
-                                                  InkWell(
-                                                      onTap: () {
-                                                        onTapImgUser();
-                                                      },
-                                                      child: Padding(
-                                                          padding: getPadding(
-                                                              left: 24,
-                                                              top: 1,
-                                                              bottom: 1),
-                                                          child: CommonImageView(
-                                                              svgPath:
-                                                                  ImageConstant
-                                                                      .imgUser,
-                                                              height:
-                                                                  getVerticalSize(
-                                                                      15.00),
-                                                              width:
-                                                                  getHorizontalSize(
-                                                                      13.00))))
+                                                          width:
+                                                              getHorizontalSize(
+                                                                  13.00)))
                                                 ])
                                           ]))),
                               Container(
@@ -230,13 +214,13 @@ class ProductPageScreen extends GetWidget<ProductPageController> {
                                                 style: AppStyle.txtLatoRegular14
                                                     .copyWith()))),
                                         CustomButton(
-                                            width: 358,
-                                            text: "lbl_add_to_cart"
-                                                .tr
-                                                .toUpperCase(),
-                                            margin: getMargin(
-                                                left: 16, top: 24, right: 16),
-                                            onTap: onTapBtnAddtocart)
+                                          width: 358,
+                                          text: "lbl_add_to_cart"
+                                              .tr
+                                              .toUpperCase(),
+                                          margin: getMargin(
+                                              left: 16, top: 24, right: 16),
+                                        )
                                       ]))
                             ]))))));
   }
@@ -245,36 +229,4 @@ class ProductPageScreen extends GetWidget<ProductPageController> {
     Get.back();
   }
 
-  onTapImgSearch() {
-    Get.toNamed(AppRoutes.productSearchScreen);
-  }
-
-  onTapImgCart() {
-    Get.toNamed(AppRoutes.cartScreen);
-  }
-
-  onTapImgUser() {
-    Get.toNamed(AppRoutes.profileTabScreen);
-  }
-
-  void onTapBtnAddtocart() {
-    PostCartIdLineItemsReq postCartIdLineItemsReq = PostCartIdLineItemsReq(
-      variantId: controller.productPageModelObj.value.variantIdTxt.value,
-      quantity: Shopsie.qty,
-    );
-    controller.callCreateCartIdLineItems(
-      postCartIdLineItemsReq.toJson(),
-      successCall: _onCreateCartIdLineItemsSuccess,
-      errCall: _onCreateCartIdLineItemsError,
-      cartId: Get.find<PrefUtils>().getCartId(),
-    );
-    Fluttertoast.showToast(msg: "Added into cart!");
-  }
-
-  void _onCreateCartIdLineItemsSuccess() {}
-  void _onCreateCartIdLineItemsError() {
-    Fluttertoast.showToast(
-      msg: "Something went wrong!",
-    );
-  }
 }
