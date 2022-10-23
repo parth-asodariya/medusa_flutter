@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:medusa_flutter/models/req/store_post_auth_req.dart';
 import 'package:medusa_flutter/models/res/auth.dart';
 import 'package:medusa_flutter/resources/base.dart';
 
@@ -12,8 +13,12 @@ class AuthResource extends BaseResource {
   /// @param {StorePostAuthReq} payload authentication payload
   /// @param customHeaders
   /// @return {ResponsePromise<StoreAuthRes>}
-  Future<StoreAuthRes?> authenticate(Map<String, dynamic>? req) async {
+  Future<StoreAuthRes?> authenticate(
+      {StorePostAuthReq? req, Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response =
           await client.post('${client.options.baseUrl}/store/auth', data: req);
       if (response.statusCode == 200) {
@@ -29,8 +34,11 @@ class AuthResource extends BaseResource {
 
   /// @description Removes authentication session
   /// @return {ResponsePromise<void>}
-  Future deleteSession() async {
+  Future<void> deleteSession({Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response = await client.delete(
         '${client.options.baseUrl}/store/auth',
       );
@@ -48,8 +56,12 @@ class AuthResource extends BaseResource {
   /// Usually used to check if authenticated session is alive.
   /// @param customHeaders
   /// @return {ResponsePromise<StoreAuthRes>}
-  Future<StoreAuthRes?> getSession() async {
+  Future<StoreAuthRes?> getSession(
+      {Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response = await client.get(
         '${client.options.baseUrl}/store/auth',
       );
@@ -67,8 +79,12 @@ class AuthResource extends BaseResource {
   /// @param {string} email is required
   /// @param customHeaders
   /// @return {ResponsePromise<StoreGetAuthEmailRes>}
-  Future<StoreGetAuthEmailRes?> exists(String email) async {
+  Future<StoreGetAuthEmailRes?> exists(
+      {required String email, Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response = await client.get(
         '${client.options.baseUrl}/store/auth/$email',
       );

@@ -13,8 +13,12 @@ class ProductsResource extends BaseResource {
   /// @param customHeaders
   /// @return {ResponsePromise<StoreProductsListRes>}
   Future<StoreProductsListRes?> list(
-      {Map<String, dynamic>? queryParams}) async {
+      {Map<String, dynamic>? queryParams,
+      Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response = await client.get(
         '${client.options.baseUrl}/store/products',
         queryParameters: queryParams,
@@ -34,8 +38,12 @@ class ProductsResource extends BaseResource {
   /// @param {string} id is required
   /// @param customHeaders
   /// @return {ResponsePromise<StoreProductsRes>}
-  Future<StoreProductsRes?> retrieve(String id) async {
+  Future<StoreProductsRes?> retrieve(String id,
+      {Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response = await client.get(
         '${client.options.baseUrl}/store/products/$id',
       );
@@ -54,8 +62,12 @@ class ProductsResource extends BaseResource {
   /// @param {StorePostSearchReq} searchOptions is required
   /// @param customHeaders
   /// @return {ResponsePromise<StorePostSearchRes>}
-  Future<StorePostSearchRes?> search(StorePostSearchReq? req) async {
+  Future<StorePostSearchRes?> search(
+      {StorePostSearchReq? req, Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response = await client
           .post('${client.options.baseUrl}/store/products/search', data: req);
       if (response.statusCode == 200) {

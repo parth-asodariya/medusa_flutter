@@ -11,8 +11,12 @@ class GiftCardsResource extends BaseResource {
   /// @param {string} code code of the gift card
   /// @param customHeaders
   /// @return {ResponsePromise<StoreGiftCardsRes>}
-  Future<StoreGiftCardsRes?> retrieve(String code) async {
+  Future<StoreGiftCardsRes?> retrieve(
+      {required String code, Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response =
           await client.get('${client.options.baseUrl}/store/gift-cards/$code');
       if (response.statusCode == 200) {

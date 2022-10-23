@@ -45,8 +45,9 @@ class Medusa {
       "Accept": "application/json",
       "Content-Type": "application/json",
     });
-    if (config.apiKey != null)
-      _dio.options.headers["Authorization"] = "Bearer ${config.apiKey}";
+    if (config.cookie != null) {
+      _dio.options.headers["Cookie"] = config.cookie;
+    }
     auth = AuthResource(_dio);
     carts = CartsResource(_dio);
     customers = CustomersResource(_dio);

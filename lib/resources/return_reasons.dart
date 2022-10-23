@@ -11,8 +11,12 @@ class ReturnReasonsResource extends BaseResource {
   /// @param {string} id is required
   /// @param customHeaders
   /// @return {ResponsePromise<StoreReturnReasonsRes>}
-  Future<StoreReturnReasonsRes?> retrieve(String id) async {
+  Future<StoreReturnReasonsRes?> retrieve(
+      {required String id, Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response = await client.get(
         '${client.options.baseUrl}/store/return-reasons/$id',
       );
@@ -31,8 +35,12 @@ class ReturnReasonsResource extends BaseResource {
   /// @param customHeaders
   /// @return {ResponsePromise<StoreReturnReasonsListRes>}
 
-  Future<StoreReturnReasonsListRes?> list() async {
+  Future<StoreReturnReasonsListRes?> list(
+      {Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response = await client.get(
         '${client.options.baseUrl}/store/return-reasons',
       );

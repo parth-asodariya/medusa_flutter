@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:medusa_flutter/resources/base.dart';
 
+import '../models/req/store_post_returns_req.dart';
 import '../models/res/returns.dart';
 
 class ReturnsResource extends BaseResource {
@@ -12,8 +13,12 @@ class ReturnsResource extends BaseResource {
   /// @param customHeaders
   /// @return {ResponsePromise<StoreReturnsRes>}
 
-  Future<StoreReturnsRes?> search(Map<String, dynamic>? req) async {
+  Future<StoreReturnsRes?> search(
+      {StorePostReturnsReq? req, Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response = await client
           .post('${client.options.baseUrl}`/store/returns', data: req);
       if (response.statusCode == 200) {

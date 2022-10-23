@@ -12,9 +12,11 @@ class OrderEditsResource extends BaseResource {
   /// @param customHeaders
   /// @return {ResponsePromise<StoreOrderEditsRes>}
   Future<StoreOrderEditsRes?> retrieve(
-    String id,
-  ) async {
+      {required String id, Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response =
           await client.get('${client.options.baseUrl}/store/order-edits/$id');
       if (response.statusCode == 200) {

@@ -11,8 +11,12 @@ class PaymentMethodsResource extends BaseResource {
   /// @param {string} id id of cart
   /// @param customHeaders
   /// @return {StoreCustomersListPaymentMethodsRes}
-  Future<StoreCustomersListPaymentMethodsRes?> list() async {
+  Future<StoreCustomersListPaymentMethodsRes?> list(
+      {Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response = await client
           .get('${client.options.baseUrl}/store/customers/me/payment-methods');
       if (response.statusCode == 200) {

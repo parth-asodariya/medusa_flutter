@@ -10,8 +10,12 @@ class RegionsResource extends BaseResource {
   /// @description Retrieves a list of regions
   /// @param customHeaders
   /// @return {ResponsePromise<StoreRegionsListRes>}
-  Future<StoreRegionsListRes?> list() async {
+  Future<StoreRegionsListRes?> list(
+      {Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response =
           await client.get('${client.options.baseUrl}/store/regions');
       if (response.statusCode == 200) {
@@ -29,8 +33,12 @@ class RegionsResource extends BaseResource {
   /// @param {string} id is required
   /// @param customHeaders
   /// @return {ResponsePromise<StoreRegionsRes>}
-  Future<StoreRegionsRes?> retrieve(String id) async {
+  Future<StoreRegionsRes?> retrieve(
+      {required String id, Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response = await client.get(
         '${client.options.baseUrl}/store/regions/$id',
       );

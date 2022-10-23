@@ -2,6 +2,10 @@ import 'dart:developer';
 
 import 'package:medusa_flutter/resources/base.dart';
 
+import '../models/req/store_post_cart_req.dart';
+import '../models/req/store_post_carts_cart_payment_session_req.dart';
+import '../models/req/store_post_carts_cart_req.dart';
+import '../models/req/store_post_carts_cart_shipping_method_req.dart';
 import '../models/res/cart.dart';
 
 class CartsResource extends BaseResource {
@@ -13,11 +17,13 @@ class CartsResource extends BaseResource {
   /// @param customHeaders
   /// @return {ResponsePromise<StoreCartsRes>}
   Future<StoreCartsRes?> addShippingMethod(
-    String cartId,
-    Map<String, dynamic>? req,
-    Map<String, dynamic>? headers,
-  ) async {
+      {required String cartId,
+      StorePostCartsCartShippingMethodReq? req,
+      Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response = await client.post(
           '${client.options.baseUrl}/store/carts/$cartId/shipping-methods',
           data: req);
@@ -41,9 +47,11 @@ class CartsResource extends BaseResource {
   /// @param customHeaders
   /// @return {ResponsePromise<StoreCompleteCartRes>}
   Future<StoreCompleteCartRes?> complete(
-    String cartId,
-  ) async {
+      {required String cartId, Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response = await client
           .post('${client.options.baseUrl}/store/carts/$cartId/complete');
       if (response.statusCode == 200) {
@@ -62,8 +70,12 @@ class CartsResource extends BaseResource {
   /// The cart will contain the payload, if provided. Otherwise it will be empty
   /// @param customHeaders
   /// @return {ResponsePromise<StoreCartsRes>}
-  Future<StoreCartsRes?> create({Map<String, dynamic>? req}) async {
+  Future<StoreCartsRes?> create(
+      {StorePostCartReq? req, Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response =
           await client.post('${client.options.baseUrl}/store/carts', data: req);
       if (response.statusCode == 200) {
@@ -84,9 +96,11 @@ class CartsResource extends BaseResource {
   /// @param customHeaders
   /// @return {ResponsePromise<StoreCartsRes>}
   Future<StoreCartsRes?> createPaymentSessions(
-    String cartId,
-  ) async {
+      {required String cartId, Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response = await client.post(
           '${client.options.baseUrl}/store/carts/$cartId/payment-sessions');
       if (response.statusCode == 200) {
@@ -106,10 +120,13 @@ class CartsResource extends BaseResource {
   /// @param customHeaders
   /// @return {ResponsePromise<StoreCartsRes>}
   Future<StoreCartsRes?> deleteDiscount(
-    String cartId,
-    String code,
-  ) async {
+      {required String cartId,
+      String? code,
+      Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response = await client.delete(
           '${client.options.baseUrl}/store/carts/$cartId/discounts/$code');
       if (response.statusCode == 200) {
@@ -130,10 +147,13 @@ class CartsResource extends BaseResource {
   /// @param customHeaders
   /// @return {ResponsePromise<StoreCartsRes>}
   Future<StoreCartsRes?> deletePaymentSession(
-    String cartId,
-    String providerId,
-  ) async {
+      {required String cartId,
+      required String providerId,
+      Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response = await client.delete(
           '${client.options.baseUrl}/store/carts/$cartId/payment-sessions/$providerId');
       if (response.statusCode == 200) {
@@ -153,10 +173,13 @@ class CartsResource extends BaseResource {
   /// @param customHeaders
   /// @return {ResponsePromise<StoreCartsRes>}
   Future<StoreCartsRes?> refreshPaymentSession(
-    String cartId,
-    String providerId,
-  ) async {
+      {required String cartId,
+      required String providerId,
+      Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response = await client.post(
           '${client.options.baseUrl}/store/carts/$cartId/payment-sessions/$providerId/refresh');
       if (response.statusCode == 200) {
@@ -175,9 +198,11 @@ class CartsResource extends BaseResource {
   /// @param customHeaders
   /// @return {ResponsePromise<StoreCartsRes>}
   Future<StoreCartsRes?> retrieve(
-    String cartId,
-  ) async {
+      {required String cartId, Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response =
           await client.get('${client.options.baseUrl}/store/carts/$cartId');
       if (response.statusCode == 200) {
@@ -197,10 +222,13 @@ class CartsResource extends BaseResource {
   /// @param customHeaders
   /// @return {ResponsePromise<StoreCartsRes>}
   Future<StoreCartsRes?> setPaymentSession(
-    String cartId,
-    Map<String, dynamic>? req,
-  ) async {
+      {required String cartId,
+      required StorePostCartsCartPaymentSessionReq? req,
+      Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response = await client.post(
           '${client.options.baseUrl}/store/carts/$cartId/payment-sessions',
           data: req);
@@ -220,10 +248,13 @@ class CartsResource extends BaseResource {
   /// @param customHeaders
   /// @return {ResponsePromise<StoreCartsRes>}
   Future<StoreCartsRes?> update(
-    String cartId,
-    Map<String, dynamic>? req,
-  ) async {
+      {required String cartId,
+      required StorePostCartsCartReq? req,
+      Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response = await client
           .post('${client.options.baseUrl}/store/carts/$cartId', data: req);
       if (response.statusCode == 200) {
@@ -244,8 +275,14 @@ class CartsResource extends BaseResource {
   /// @param customHeaders
   /// @return {ResponsePromise<StoreCartsRes>}
   Future<StoreCartsRes?> updatePaymentSession(
-      String cartId, String providerId, Map<String, dynamic>? req) async {
+      {required String cartId,
+      required String providerId,
+      required Map<String, dynamic>? req,
+      Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response = await client.post(
           '${client.options.baseUrl}/store/carts/$cartId/payment-sessions/$providerId',
           data: req);

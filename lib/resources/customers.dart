@@ -2,6 +2,9 @@ import 'dart:developer';
 
 import 'package:medusa_flutter/resources/base.dart';
 
+import '../models/req/store_post_customers_customer_password_token_req.dart';
+import '../models/req/store_post_customers_customer_req.dart';
+import '../models/req/store_post_customers_req.dart';
 import '../models/res/customers.dart';
 
 class CustomersResource extends BaseResource {
@@ -11,8 +14,12 @@ class CustomersResource extends BaseResource {
   /// @param {StorePostCustomersReq} payload information of customer
   /// @param customHeaders
   /// @return { ResponsePromise<StoreCustomersRes>}
-  Future<StoreCustomersRes?> create(Map<String, dynamic>? req) async {
+  Future<StoreCustomersRes?> create(
+      {StorePostCustomersReq? req, Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response = await client
           .post('${client.options.baseUrl}/store/customers', data: req);
       if (response.statusCode == 200) {
@@ -29,8 +36,12 @@ class CustomersResource extends BaseResource {
   ///Retrieves the customer that is currently logged
   /// @param customHeaders
   /// @return {ResponsePromise<StoreCustomersRes>}
-  Future<StoreCustomersRes?> retrieve() async {
+  Future<StoreCustomersRes?> retrieve(
+      {Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response = await client.get(
         '${client.options.baseUrl}/store/customers/me',
       );
@@ -48,8 +59,13 @@ class CustomersResource extends BaseResource {
   /// @param {StorePostCustomersCustomerReq} payload information to update customer with
   /// @param customHeaders
   /// @return {ResponsePromise<StoreCustomersRes>}
-  Future<StoreCustomersRes?> update(Map<String, dynamic>? req) async {
+  Future<StoreCustomersRes?> update(
+      {StorePostCustomersCustomerReq? req,
+      Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response = await client
           .post('${client.options.baseUrl}/store/customers/me', data: req);
       if (response.statusCode == 200) {
@@ -68,8 +84,12 @@ class CustomersResource extends BaseResource {
   /// @param customHeaders
   /// @return {ResponsePromise<StoreCustomersListOrdersRes>}
 
-  Future<StoreCustomersListOrdersRes?> listOrders() async {
+  Future<StoreCustomersListOrdersRes?> listOrders(
+      {Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response = await client.get(
         '${client.options.baseUrl}/store/customers/me/orders',
       );
@@ -88,8 +108,13 @@ class CustomersResource extends BaseResource {
   /// @param {StorePostCustomersCustomerPasswordTokenReq} payload info used to reset customer password
   /// @param customHeaders
   /// @return {ResponsePromise<StoreCustomersRes>}
-  Future<StoreCustomersRes?> resetPassword(Map<String, dynamic>? req) async {
+  Future<StoreCustomersRes?> resetPassword(
+      {StorePostCustomersCustomerPasswordTokenReq? req,
+      Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response = await client.post(
           '${client.options.baseUrl}/store/customers/password-reset',
           data: req);
@@ -109,8 +134,13 @@ class CustomersResource extends BaseResource {
   /// @param {StorePostCustomersCustomerPasswordTokenReq} payload info used to generate token
   /// @param customHeaders
   /// @return {ResponsePromise}
-  Future generatePasswordToken(Map<String, dynamic>? req) async {
+  Future generatePasswordToken(
+      {StorePostCustomersCustomerPasswordTokenReq? req,
+      Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response = await client.post(
           '${client.options.baseUrl}/store/customers/password-token',
           data: req);

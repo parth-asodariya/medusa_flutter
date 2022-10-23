@@ -12,9 +12,11 @@ class OrdersResource extends BaseResource {
   /// @param customHeaders
   /// @return {ResponsePromise<StoreOrdersRes>}
   Future<StoreOrdersRes?> retrieve(
-    String id,
-  ) async {
+      {required String id, Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response =
           await client.get('${client.options.baseUrl}/store/orders/$id');
       if (response.statusCode == 200) {
@@ -33,9 +35,11 @@ class OrdersResource extends BaseResource {
   /// @param customHeaders
   /// @return {ResponsePromise<StoreOrdersRes>}
   Future<StoreOrdersRes?> retrieveByCartId(
-    String cartId,
-  ) async {
+      {required String cartId, Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response = await client
           .get('${client.options.baseUrl}/store/orders/cart/$cartId');
       if (response.statusCode == 200) {
@@ -54,9 +58,12 @@ class OrdersResource extends BaseResource {
   /// @param customHeaders
   /// @return {ResponsePromise<StoreOrdersRes>}
   Future<StoreOrdersRes?> lookupOrder(
-    Map<String, dynamic>? queryParams,
-  ) async {
+      {Map<String, dynamic>? queryParams,
+      Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response = await client.get(
           '${client.options.baseUrl}/store/orders/cart/',
           queryParameters: queryParams);

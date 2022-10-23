@@ -11,10 +11,14 @@ class ShippingOptionsResource extends BaseResource {
   /// @param {string} cart_id
   /// @param customHeaders
   /// @return {ResponsePromise<StoreShippingOptionsListRes>}
-  Future<StoreShippingOptionsListRes?> listCartOptions(String cart_id) async {
+  Future<StoreShippingOptionsListRes?> listCartOptions(
+      {String? cartId, Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response = await client.get(
-        '${client.options.baseUrl}/store/shipping-options/$cart_id',
+        '${client.options.baseUrl}/store/shipping-options/$cartId',
       );
       if (response.statusCode == 200) {
         return StoreShippingOptionsListRes.fromJson(response.data);
@@ -32,8 +36,12 @@ class ShippingOptionsResource extends BaseResource {
   /// @param customHeaders
   /// @return {ResponsePromise<StoreShippingOptionsListRes>}
   Future<StoreShippingOptionsListRes?> list(
-      {Map<String, dynamic>? queryParams}) async {
+      {Map<String, dynamic>? queryParams,
+      Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response = await client.get(
           '${client.options.baseUrl}/store/shipping-options',
           queryParameters: queryParams);

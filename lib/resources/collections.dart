@@ -12,9 +12,11 @@ class CollectionsResource extends BaseResource {
   /// @param customHeaders
   /// @return {ResponsePromise<StoreCollectionsRes>}
   Future<StoreCollectionsRes?> retrieve(
-    String id,
-  ) async {
+      {required String id, Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response =
           await client.get('${client.options.baseUrl}/store/collections/$id');
       if (response.statusCode == 200) {
@@ -32,10 +34,13 @@ class CollectionsResource extends BaseResource {
   /// @param {string} query is optional. Can contain a limit and offset for the returned list
   /// @param customHeaders
   /// @return {ResponsePromise<StoreCollectionsListRes>}
-  Future<StoreCollectionsListRes?> list({
-    Map<String, dynamic>? queryParams,
-  }) async {
+  Future<StoreCollectionsListRes?> list(
+      {Map<String, dynamic>? queryParams,
+      Map<String, dynamic>? customHeaders}) async {
     try {
+      if (customHeaders != null) {
+        client.options.headers.addAll(customHeaders);
+      }
       final response = await client.get(
         '${client.options.baseUrl}/store/collections',
         queryParameters: queryParams,
