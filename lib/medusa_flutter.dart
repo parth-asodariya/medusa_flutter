@@ -1,9 +1,5 @@
 library medusa_flutter;
 
-export 'medusa_flutter.dart';
-export '/data/config.dart';
-
-
 import 'package:dio/dio.dart';
 
 import 'data/config.dart';
@@ -12,8 +8,8 @@ import "resources/carts.dart";
 import "resources/collections.dart";
 import "resources/customers.dart";
 import "resources/gift_cards.dart";
-import "resources/orders.dart";
 import "resources/order_edits.dart";
+import "resources/orders.dart";
 import "resources/payment_methods.dart";
 import "resources/products.dart";
 import "resources/regions.dart";
@@ -21,6 +17,12 @@ import "resources/return_reasons.dart";
 import "resources/returns.dart";
 import "resources/shipping_options.dart";
 import "resources/swaps.dart";
+
+export '/data/config.dart';
+export '/models/common/index.dart';
+export '/models/req/index.dart';
+export '/models/res/index.dart';
+export '/models/store/index.dart';
 
 class Medusa {
   final Dio _dio = Dio();
@@ -45,8 +47,9 @@ class Medusa {
       "Accept": "application/json",
       "Content-Type": "application/json",
     });
-    if (config.apiKey != null)
+    if (config.apiKey != null) {
       _dio.options.headers["Authorization"] = "Bearer ${config.apiKey}";
+    }
     auth = AuthResource(_dio);
     carts = CartsResource(_dio);
     customers = CustomersResource(_dio);
@@ -63,5 +66,3 @@ class Medusa {
     paymentMethods = PaymentMethodsResource(_dio);
   }
 }
-
-
