@@ -18,7 +18,7 @@ class ShippingOptionsResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response = await client.get(
-        '${client.options.baseUrl}/store/shipping-options/$cartId',
+        '/store/shipping-options/$cartId',
       );
       if (response.statusCode == 200) {
         return StoreShippingOptionsListRes.fromJson(response.data);
@@ -43,7 +43,7 @@ class ShippingOptionsResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response = await client.get(
-          '${client.options.baseUrl}/store/shipping-options',
+          '/store/shipping-options',
           queryParameters: queryParams);
       if (response.statusCode == 200) {
         return StoreShippingOptionsListRes.fromJson(response.data);

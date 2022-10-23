@@ -25,7 +25,7 @@ class CartsResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response = await client.post(
-          '${client.options.baseUrl}/store/carts/$cartId/shipping-methods',
+          '/store/carts/$cartId/shipping-methods',
           data: req);
       if (response.statusCode == 200) {
         return StoreCartsRes.fromJson(response.data);
@@ -53,7 +53,7 @@ class CartsResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response = await client
-          .post('${client.options.baseUrl}/store/carts/$cartId/complete');
+          .post('/store/carts/$cartId/complete');
       if (response.statusCode == 200) {
         return StoreCompleteCartRes.fromJson(response.data);
       } else {
@@ -77,7 +77,7 @@ class CartsResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response =
-          await client.post('${client.options.baseUrl}/store/carts', data: req);
+          await client.post('/store/carts', data: req);
       if (response.statusCode == 200) {
         return StoreCartsRes.fromJson(response.data);
       } else {
@@ -102,7 +102,7 @@ class CartsResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response = await client.post(
-          '${client.options.baseUrl}/store/carts/$cartId/payment-sessions');
+          '/store/carts/$cartId/payment-sessions');
       if (response.statusCode == 200) {
         return StoreCartsRes.fromJson(response.data);
       } else {
@@ -128,7 +128,7 @@ class CartsResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response = await client.delete(
-          '${client.options.baseUrl}/store/carts/$cartId/discounts/$code');
+          '/store/carts/$cartId/discounts/$code');
       if (response.statusCode == 200) {
         return StoreCartsRes.fromJson(response.data);
       } else {
@@ -155,7 +155,7 @@ class CartsResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response = await client.delete(
-          '${client.options.baseUrl}/store/carts/$cartId/payment-sessions/$providerId');
+          '/store/carts/$cartId/payment-sessions/$providerId');
       if (response.statusCode == 200) {
         return StoreCartsRes.fromJson(response.data);
       } else {
@@ -181,7 +181,7 @@ class CartsResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response = await client.post(
-          '${client.options.baseUrl}/store/carts/$cartId/payment-sessions/$providerId/refresh');
+          '/store/carts/$cartId/payment-sessions/$providerId/refresh');
       if (response.statusCode == 200) {
         return StoreCartsRes.fromJson(response.data);
       } else {
@@ -204,7 +204,7 @@ class CartsResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response =
-          await client.get('${client.options.baseUrl}/store/carts/$cartId');
+          await client.get('/store/carts/$cartId');
       if (response.statusCode == 200) {
         return StoreCartsRes.fromJson(response.data);
       } else {
@@ -230,7 +230,7 @@ class CartsResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response = await client.post(
-          '${client.options.baseUrl}/store/carts/$cartId/payment-sessions',
+          '/store/carts/$cartId/payment-sessions',
           data: req);
       if (response.statusCode == 200) {
         return StoreCartsRes.fromJson(response.data);
@@ -256,7 +256,7 @@ class CartsResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response = await client
-          .post('${client.options.baseUrl}/store/carts/$cartId', data: req);
+          .post('/store/carts/$cartId', data: req);
       if (response.statusCode == 200) {
         return StoreCartsRes.fromJson(response.data);
       } else {
@@ -284,7 +284,7 @@ class CartsResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response = await client.post(
-          '${client.options.baseUrl}/store/carts/$cartId/payment-sessions/$providerId',
+          '/store/carts/$cartId/payment-sessions/$providerId',
           data: req);
       if (response.statusCode == 200) {
         return StoreCartsRes.fromJson(response.data);

@@ -21,7 +21,7 @@ class CustomersResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response = await client
-          .post('${client.options.baseUrl}/store/customers', data: req);
+          .post('/store/customers', data: req);
       if (response.statusCode == 200) {
         return StoreCustomersRes.fromJson(response.data);
       } else {
@@ -43,7 +43,7 @@ class CustomersResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response = await client.get(
-        '${client.options.baseUrl}/store/customers/me',
+        '/store/customers/me',
       );
       if (response.statusCode == 200) {
         return StoreCustomersRes.fromJson(response.data);
@@ -67,7 +67,7 @@ class CustomersResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response = await client
-          .post('${client.options.baseUrl}/store/customers/me', data: req);
+          .post('/store/customers/me', data: req);
       if (response.statusCode == 200) {
         return StoreCustomersRes.fromJson(response.data);
       } else {
@@ -91,7 +91,7 @@ class CustomersResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response = await client.get(
-        '${client.options.baseUrl}/store/customers/me/orders',
+        '/store/customers/me/orders',
       );
       if (response.statusCode == 200) {
         return StoreCustomersListOrdersRes.fromJson(response.data);
@@ -116,7 +116,7 @@ class CustomersResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response = await client.post(
-          '${client.options.baseUrl}/store/customers/password-reset',
+          '/store/customers/password-reset',
           data: req);
       if (response.statusCode == 200) {
         return StoreCustomersRes.fromJson(response.data);
@@ -142,7 +142,7 @@ class CustomersResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response = await client.post(
-          '${client.options.baseUrl}/store/customers/password-token',
+          '/store/customers/password-token',
           data: req);
       if (response.statusCode == 200) {
         return response.data;

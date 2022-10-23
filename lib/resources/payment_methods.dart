@@ -18,7 +18,7 @@ class PaymentMethodsResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response = await client
-          .get('${client.options.baseUrl}/store/customers/me/payment-methods');
+          .get('/store/customers/me/payment-methods');
       if (response.statusCode == 200) {
         return StoreCustomersListPaymentMethodsRes.fromJson(response.data);
       } else {

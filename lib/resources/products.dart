@@ -20,7 +20,7 @@ class ProductsResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response = await client.get(
-        '${client.options.baseUrl}/store/products',
+        '/store/products',
         queryParameters: queryParams,
       );
       if (response.statusCode == 200) {
@@ -45,7 +45,7 @@ class ProductsResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response = await client.get(
-        '${client.options.baseUrl}/store/products/$id',
+        '/store/products/$id',
       );
       if (response.statusCode == 200) {
         return StoreProductsRes.fromJson(response.data);
@@ -69,7 +69,7 @@ class ProductsResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response = await client
-          .post('${client.options.baseUrl}/store/products/search', data: req);
+          .post('/store/products/search', data: req);
       if (response.statusCode == 200) {
         return StorePostSearchRes.fromJson(response.data);
       } else {

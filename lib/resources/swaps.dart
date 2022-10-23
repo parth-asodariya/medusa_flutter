@@ -19,7 +19,7 @@ class SwapsResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response =
-          await client.post('${client.options.baseUrl}/store/swaps', data: req);
+          await client.post('/store/swaps', data: req);
       if (response.statusCode == 200) {
         return StoreSwapsRes.fromJson(response.data);
       } else {
@@ -42,7 +42,7 @@ class SwapsResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response = await client.get(
-        '${client.options.baseUrl}/store/swaps/$cartId',
+        '/store/swaps/$cartId',
       );
       if (response.statusCode == 200) {
         return StoreSwapsRes.fromJson(response.data);

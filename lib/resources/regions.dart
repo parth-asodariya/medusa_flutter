@@ -17,7 +17,7 @@ class RegionsResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response =
-          await client.get('${client.options.baseUrl}/store/regions');
+          await client.get('/store/regions');
       if (response.statusCode == 200) {
         return StoreRegionsListRes.fromJson(response.data);
       } else {
@@ -40,7 +40,7 @@ class RegionsResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response = await client.get(
-        '${client.options.baseUrl}/store/regions/$id',
+        '/store/regions/$id',
       );
       if (response.statusCode == 200) {
         return StoreRegionsRes.fromJson(response.data);

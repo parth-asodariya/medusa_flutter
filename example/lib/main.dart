@@ -5,7 +5,7 @@ import 'package:medusa_flutter/medusa_flutter.dart';
 late Medusa medusa;
 
 void main() {
-  medusa = Medusa(Config(baseUrl: 'http://192.168.31.52:9000'));
+  medusa = Medusa(Config(baseUrl: 'http://localhost:9000'));
   runApp(const MyApp());
 }
 
