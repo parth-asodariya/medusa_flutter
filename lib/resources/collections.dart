@@ -18,7 +18,7 @@ class CollectionsResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response =
-          await client.get('${client.options.baseUrl}/store/collections/$id');
+          await client.get('/store/collections/$id');
       if (response.statusCode == 200) {
         return StoreCollectionsRes.fromJson(response.data);
       } else {
@@ -42,7 +42,7 @@ class CollectionsResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response = await client.get(
-        '${client.options.baseUrl}/store/collections',
+        '/store/collections',
         queryParameters: queryParams,
       );
       if (response.statusCode == 200) {

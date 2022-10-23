@@ -18,7 +18,7 @@ class ReturnReasonsResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response = await client.get(
-        '${client.options.baseUrl}/store/return-reasons/$id',
+        '/store/return-reasons/$id',
       );
       if (response.statusCode == 200) {
         return StoreReturnReasonsRes.fromJson(response.data);
@@ -42,7 +42,7 @@ class ReturnReasonsResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response = await client.get(
-        '${client.options.baseUrl}/store/return-reasons',
+        '/store/return-reasons',
       );
       if (response.statusCode == 200) {
         return StoreReturnReasonsListRes.fromJson(response.data);

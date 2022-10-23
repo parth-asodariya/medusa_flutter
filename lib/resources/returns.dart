@@ -20,7 +20,7 @@ class ReturnsResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response = await client
-          .post('${client.options.baseUrl}`/store/returns', data: req);
+          .post('`/store/returns', data: req);
       if (response.statusCode == 200) {
         return StoreReturnsRes.fromJson(response.data);
       } else {

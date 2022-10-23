@@ -18,7 +18,7 @@ class GiftCardsResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response =
-          await client.get('${client.options.baseUrl}/store/gift-cards/$code');
+          await client.get('/store/gift-cards/$code');
       if (response.statusCode == 200) {
         return StoreGiftCardsRes.fromJson(response.data);
       } else {

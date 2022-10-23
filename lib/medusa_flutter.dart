@@ -1,6 +1,10 @@
 library medusa_flutter;
 
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'data/config.dart';
@@ -44,13 +48,7 @@ class Medusa {
   late PaymentMethodsResource paymentMethods;
 
   Medusa(Config config) {
-    _dio.options = BaseOptions(baseUrl: config.baseUrl, headers: {
-      "Accept": "application/json",
-      "Content-Type": "application/json",
-    });
-    if (config.apiKey != null) {
-      _dio.options.headers["Authorization"] = "Bearer ${config.apiKey}";
-    }
+    _setupApiClient(config);
     auth = AuthResource(_dio);
     carts = CartsResource(_dio);
     customers = CustomersResource(_dio);
@@ -65,5 +63,26 @@ class Medusa {
     collections = CollectionsResource(_dio);
     giftCards = GiftCardsResource(_dio);
     paymentMethods = PaymentMethodsResource(_dio);
+  }
+
+  void _setupApiClient(Config config) {
+    _dio.options = BaseOptions(baseUrl: config.baseUrl, headers: {
+      "Accept": "application/json",
+      "Content-Type": "application/json",
+    });
+    if (config.apiKey != null) {
+      _dio.options.headers["Authorization"] = "Bearer ${config.apiKey}";
+    }
+
+    _dio.interceptors
+        .add(InterceptorsWrapper(onRequest: (options, handler) async {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      String? cookie = prefs.getString('Cookie');
+      if (cookie != null && cookie.isNotEmpty) {
+        options.headers['Cookie'] = cookie;
+      }
+      return handler.next(options);
+    }));
+    if (kDebugMode) _dio.interceptors.add(LogInterceptor());
   }
 }

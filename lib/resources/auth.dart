@@ -21,8 +21,7 @@ class AuthResource extends BaseResource {
       if (customHeaders != null) {
         client.options.headers.addAll(customHeaders);
       }
-      Response response =
-          await client.post('${client.options.baseUrl}/store/auth', data: req);
+      Response response = await client.post('/store/auth', data: req);
       if (response.statusCode == 200) {
         SharedPreferences prefs = await SharedPreferences.getInstance();
         var cookie = response.headers['set-cookie']!.first.split(';').first;
@@ -31,8 +30,8 @@ class AuthResource extends BaseResource {
       } else {
         throw response.statusCode!;
       }
-    } catch (error,stackTrace) {
-      log(error.toString(),stackTrace:stackTrace);
+    } catch (error, stackTrace) {
+      log(error.toString(), stackTrace: stackTrace);
       rethrow;
     }
   }
@@ -45,7 +44,7 @@ class AuthResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response = await client.delete(
-        '${client.options.baseUrl}/store/auth',
+        '/store/auth',
       );
       if (response.statusCode == 200) {
         return response.data;
@@ -68,7 +67,7 @@ class AuthResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response = await client.get(
-        '${client.options.baseUrl}/store/auth',
+        '/store/auth',
       );
       if (response.statusCode == 200) {
         return response.data;
@@ -91,7 +90,7 @@ class AuthResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response = await client.get(
-        '${client.options.baseUrl}/store/auth/$email',
+        '/store/auth/$email',
       );
       if (response.statusCode == 200) {
         return StoreGetAuthEmailRes.fromJson(response.data);

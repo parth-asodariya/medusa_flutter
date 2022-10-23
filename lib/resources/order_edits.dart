@@ -18,7 +18,7 @@ class OrderEditsResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response =
-          await client.get('${client.options.baseUrl}/store/order-edits/$id');
+          await client.get('/store/order-edits/$id');
       if (response.statusCode == 200) {
         return StoreOrderEditsRes.fromJson(response.data);
       } else {

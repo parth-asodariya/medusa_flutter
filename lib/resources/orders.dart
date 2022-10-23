@@ -18,7 +18,7 @@ class OrdersResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response =
-          await client.get('${client.options.baseUrl}/store/orders/$id');
+          await client.get('/store/orders/$id');
       if (response.statusCode == 200) {
         return StoreOrdersRes.fromJson(response.data);
       } else {
@@ -41,7 +41,7 @@ class OrdersResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response = await client
-          .get('${client.options.baseUrl}/store/orders/cart/$cartId');
+          .get('/store/orders/cart/$cartId');
       if (response.statusCode == 200) {
         return StoreOrdersRes.fromJson(response.data);
       } else {
@@ -65,7 +65,7 @@ class OrdersResource extends BaseResource {
         client.options.headers.addAll(customHeaders);
       }
       final response = await client.get(
-          '${client.options.baseUrl}/store/orders/cart/',
+          '/store/orders/cart/',
           queryParameters: queryParams);
       if (response.statusCode == 200) {
         return StoreOrdersRes.fromJson(response.data);
