@@ -7,13 +7,50 @@
 ## About
 
 ### Participants
-<ul>
-  <li>Karan - </li>
-<li>Keval - </li>
-<li>Pankti - </li>
-<li>Parth -</li>
-<li>Snehal -</li>
-</ul>
+<table>
+<tr>
+<td>Name</td>
+<td>GitHub</td>
+<td>Discord</td>
+<td>Twitter</td>
+</tr>
+<thead>
+</thead>
+<thbody>
+<tr>
+<td>Karan</td>
+<td><a href="https://github.com/karanjoshi" target="_blank">karanjoshi</td>
+<td>karanj#4900</td>
+<td><a href="https://twitter.com/KaranJoshiDev" target="_blank">KaranJoshiDev</a></td>
+</tr>
+<tr>
+<td>Keval</td>
+<td><a href="https://github.com/keval-makadiya" target="_blank">keval-makadiya</a></td>
+<td>kevalm#1071</td>
+<td><a href="https://twitter.com/kevalmakadiya" target="_blank">kevalmakadiya</a></td>
+</tr>
+<tr>
+<td>Pankti</td>
+<td><a href="https://github.com/Pankti910" target="_blank">Pankti910</a></td>
+<td>pankti#2606</td>
+<td><a href="https://twitter.com/ShahPankti2" target="_blank">ShahPankti2</a></td>
+</tr>
+<tr>
+<td>Parth</td>
+<td><a href="https://github.com/parth-asodariya" target="_blank">parth-asodariya</a></td>
+<td>ParthA#1988</td>
+<td><a href="https://twitter.com/p_asodariya" target="_blank">p_asodariya</a></td>
+</tr>
+<tr>
+<td>Snehal</td>
+<td><a href="https://github.com/Snehal-Singh174" target="_blank">Snehal-Singh174</a></td>
+<td>Snehal#5419</td>
+<td><a href="https://twitter.com/SnehalS_" target="_blank">SnehalS_</a></td>
+</tr>
+
+<thbody>
+
+</table>
 
 ### Description
 
