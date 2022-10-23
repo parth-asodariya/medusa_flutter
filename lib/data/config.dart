@@ -1,6 +1,6 @@
 class Config {
   final String baseUrl;
-  final String? cookie;
+  final String? apiKey;
 
-  Config({required this.baseUrl, this.cookie});
+  Config({required this.baseUrl, this.apiKey});
 }

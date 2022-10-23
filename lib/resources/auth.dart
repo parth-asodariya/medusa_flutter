@@ -1,8 +1,10 @@
 import 'dart:developer';
 
+import 'package:dio/dio.dart';
 import 'package:medusa_flutter/models/req/store_post_auth_req.dart';
 import 'package:medusa_flutter/models/res/auth.dart';
 import 'package:medusa_flutter/resources/base.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/res/auth.dart';
 
@@ -19,9 +21,12 @@ class AuthResource extends BaseResource {
       if (customHeaders != null) {
         client.options.headers.addAll(customHeaders);
       }
-      final response =
+      Response response =
           await client.post('${client.options.baseUrl}/store/auth', data: req);
       if (response.statusCode == 200) {
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        var cookie = response.headers['set-cookie']!.first.split(';').first;
+        prefs.setString('Cookie', cookie);
         return StoreAuthRes.fromJson(response.data);
       } else {
         throw response.statusCode!;

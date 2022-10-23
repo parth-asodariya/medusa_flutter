@@ -103,6 +103,9 @@ var medusa = Medusa(
   );
 ```
 
+## Example Demo
+
+![medusa flutter package](https://media.giphy.com/media/AXsHjROaF0bS9jFsYq/giphy.gif)
 
 ## Resources
 

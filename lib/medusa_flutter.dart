@@ -1,6 +1,7 @@
 library medusa_flutter;
 
 import 'package:dio/dio.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'data/config.dart';
 import "resources/auth.dart";
@@ -47,8 +48,8 @@ class Medusa {
       "Accept": "application/json",
       "Content-Type": "application/json",
     });
-    if (config.cookie != null) {
-      _dio.options.headers["Cookie"] = config.cookie;
+    if (config.apiKey != null) {
+      _dio.options.headers["Authorization"] = "Bearer ${config.apiKey}";
     }
     auth = AuthResource(_dio);
     carts = CartsResource(_dio);
