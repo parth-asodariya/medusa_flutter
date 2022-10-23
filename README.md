@@ -1,10 +1,13 @@
 
 
 ## Flutter Medusa Package
+<hr>
+
 ![medusa flutter package](https://user-images.githubusercontent.com/47489894/196999514-cce76817-ccc6-4391-85cf-54214a5d96cc.gif)
 
 
 ## About
+<hr>
 
 ### Participants
 <table>
@@ -59,6 +62,7 @@ An open source ecommerce mobile application package built using Medusa and Flutt
 
 
 ## Set up Project
+<hr>
 
 ### Prerequisites
 Before you start with the tutorial make sure you have
@@ -68,7 +72,7 @@ Before you start with the tutorial make sure you have
 - [Medusa server](https://docs.medusajs.com/quickstart/quick-start/) v14 or greater installed on your machine
 
 
-### Installion
+### Installation
 
 Add Dependency of the package in your pubspec.yaml file:
 
@@ -91,6 +95,7 @@ StoreProductsListRes? productsListRes = await medusa.products.list();
 ```
 
 ## Configuration
+<hr>
 
 ### Initialize with config object
 
@@ -104,5 +109,7 @@ var medusa = Medusa(
 
 
 ## Resources
+<hr>
+
 - [Medusa’s GitHub repository](https://github.com/medusajs/medusa)
 - [Medusa Documentation](https://docs.medusajs.com/)
