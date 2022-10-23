@@ -24,8 +24,8 @@ class OrderEditsResource extends BaseResource {
       } else {
         throw response.statusCode!;
       }
-    } catch (error) {
-      log(error.toString());
+    } catch (error,stackTrace) {
+      log(error.toString(),stackTrace:stackTrace);
       rethrow;
     }
   }
