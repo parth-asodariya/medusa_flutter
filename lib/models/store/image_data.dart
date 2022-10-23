@@ -1,4 +1,4 @@
-class Image {
+class ImageData {
   String? id;
   String? url;
   DateTime? createdAt;
@@ -6,7 +6,7 @@ class Image {
   DateTime? deletedAt;
   Map<String, dynamic> metadata = <String, dynamic>{};
 
-  Image({
+  ImageData({
     this.id,
     required this.url,
     this.createdAt,
@@ -15,7 +15,7 @@ class Image {
     this.metadata = const {},
   });
 
-  Image.fromJson(Map<String, dynamic> json) {
+  ImageData.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     url = json['url'];
     createdAt = DateTime.tryParse(json['created_at'] ?? '');
