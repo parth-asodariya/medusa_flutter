@@ -1,4 +1,4 @@
-import 'package:medusa_flutter/models/store/image.dart';
+import 'package:medusa_flutter/models/store/image_data.dart';
 import 'package:medusa_flutter/models/store/product_collection.dart';
 import 'package:medusa_flutter/models/store/product_option.dart';
 import 'package:medusa_flutter/models/store/product_tag.dart';
@@ -15,7 +15,7 @@ class Product {
   String? handle;
   bool isGiftCard = false;
   ProductStatus status = ProductStatus.draft;
-  List<Image>? images;
+  List<ImageData>? images;
   String? thumbnail;
   List<ProductOption>? options;
   List<ProductVariant>? variants;
@@ -88,8 +88,8 @@ class Product {
     status = ProductStatus.values.firstWhere((e) => e.value == json['status'],
         orElse: () => ProductStatus.draft);
     if (json['images'] != null) {
-      images = <Image>[];
-      json['images'].forEach((e) => images!.add(Image.fromJson(e)));
+      images = <ImageData>[];
+      json['images'].forEach((e) => images!.add(ImageData.fromJson(e)));
     }
     thumbnail = json['thumbnail'];
     if (json['options'] != null) {

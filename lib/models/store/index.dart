@@ -25,7 +25,7 @@ export 'fulfillment_provider.dart';
 export 'gift_card.dart';
 export 'gift_card_transaction.dart';
 export 'idempotency_key.dart';
-export 'image.dart';
+export 'image_data.dart';
 export 'invite.dart';
 export 'line_item.dart';
 export 'line_item_adjustment.dart';
