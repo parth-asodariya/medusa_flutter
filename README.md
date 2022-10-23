@@ -68,24 +68,40 @@ Before you start with the tutorial make sure you have
 - [Medusa server](https://docs.medusajs.com/quickstart/quick-start/) v14 or greater installed on your machine
 
 
-### Install Project
+### Installion
 
-1. Clone the repository:
-
-```bash
-git clone https://github.com/parth-asodariya/medusa_flutter
-```
-
-2. Change directory and install dependencies:
+Add Dependency of the package in your pubspec.yaml file:
 
 ```bash
-cd medusa_flutter
-flutter pub get
+medusa_flutter:
+  path: 'PACKAGE_PATH'
 ```
-4.  Start the app
+
+### USAGE
+
+Import Medusa as a default import and initiate it:
+
+
+```dart
+import 'package:medusa_flutter/medusa_flutter.dart';
+
+var medusa = Medusa(Config(baseUrl: "MEDUSA_SERVER_URL"));
+
+StoreProductsListRes? productsListRes = await medusa.products.list();
 ```
-flutter run
+
+## Configuration
+
+### Initialize with config object
+
+```dart
+var medusa = Medusa(
+    Config(
+        baseUrl: "MEDUSA_SERVER_URL"
+    ),
+  );
 ```
+
 
 ## Resources
 - [Medusa’s GitHub repository](https://github.com/medusajs/medusa)
