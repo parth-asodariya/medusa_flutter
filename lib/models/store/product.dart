@@ -13,7 +13,7 @@ class Product {
   String? subtitle;
   String? description;
   String? handle;
-  bool isGiftCard = false;
+  bool? isGiftCard = false;
   ProductStatus status = ProductStatus.draft;
   List<ImageData>? images;
   String? thumbnail;

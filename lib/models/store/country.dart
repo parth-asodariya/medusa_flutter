@@ -1,10 +1,10 @@
 import 'package:medusa_flutter/models/store/region.dart';
 
 class Country {
-  String? id;
+  int? id;
   String? iso2;
   String? iso3;
-  String? numCode;
+  int? numCode;
   String? name;
   String? regionId;
   String? displayName;

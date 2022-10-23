@@ -40,7 +40,7 @@ class StorePostCartReq {
     if (this.context != null) {
       data['context'] = this.context!.toJson();
     }
-    data['sales_channel_id'] = this.salesChannelId;
+    if (salesChannelId != null) data['sales_channel_id'] = salesChannelId;
     return data;
   }
 }
